@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake API Calls</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>User ID</th>
+            <th>Title</th>
+            <th>Completed</th>
+        </tr>
+    </table>
+    <script>
+        let request = new XMLHttpRequest()
+        request.open("GET", "https://jsonplaceholder.typicode.com/todos/")
+        request.send()
+
+        request.addEventListener("readystatechange", () => {
+            let table = document.querySelector("table")
+            if (request.readyState == 4) {
+                let data = JSON.parse(request.responseText)
+                // console.log(data);
+                for (let i = 0; i < data.length; i++) {
+                    let row = table.insertRow()
+                    let cell1  = row.insertCell()
+                    let cell2  = row.insertCell()
+                    let cell3  = row.insertCell()
+                    let cell4  = row.insertCell()
+                    cell1.innerHTML = data[i].id
+                    cell2.innerHTML = data[i].userId
+                    cell3.innerHTML = data[i].title
+                    cell4.innerHTML = data[i].completed
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>
+select -> changes
