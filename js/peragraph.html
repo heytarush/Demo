@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <img src="../../../Downloads/IMG_20230126_180440.jpeg"> -->
+    <p>1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit in quia recusandae quibusdam autem
+        nostrum cumque atque sequi consequuntur corrupti, ipsam officia error? Esse explicabo et autem porro itaque
+        eligendi distinctio laboriosam hic dolore eos! Quod dicta eius dolor animi alias quia, unde sit voluptas fugiat,
+        nam aspernatur dolores? Magnam atque quae excepturi nobis quaerat ipsum illum, minima et provident quasi dolore
+        labore dolorem molestiae officiis, nemo consequatur. Voluptatibus eveniet ullam illo incidunt? Sequi, dolore
+        harum fugiat dignissimos sint quisquam! </p>
+
+    <p>2.Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic labore dolorem assumenda eum. Quod voluptate
+        sapiente vitae commodi eos tempora laborum recusandae ea provident quos, doloribus, dicta nobis! Ipsam, a?</p>
+
+    <p> 3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolorum fugiat quod distinctio eos aliquam?
+        Quas
+        et voluptatibus culpa quisquam.</p>
+    <form>
+        <label for="pera"> enter the text you want to changer </label>
+        <input type="text" id="pera">
+        <label for="selectpera"> select the pera </label>
+        <input type="number" id="selectpera">
+    </form>
+    <button onclick="changer()" onmouseover="document.body.style.backgroundColor = 'pink'">click here</button>
+
+    <script> 
+
+        function changer() {
+            let text = document.getElementById("pera").value
+            let num = parseInt(document.getElementById("selectpera").value)
+            document.querySelectorAll('p')[num - 1].innerHTML = text
+        }
+
+// let head = document.getElementById("p2")
+// console.log(head)
+
+// let img = document.createElement("img")
+// img.src = "../../../Downloads/IMG_20230126_180440.jpeg"
+// img.width = 50
+// img.height = 50
+// console.log(img);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            height: 100vh;
+            background: #e00000;
+            background: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
+            background: linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            height: 70%;
+            width: 60%;
+            border-radius: 1em;
+            border: solid white;
+            display: grid;
+            grid-template-rows: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            align-items: center;
+            justify-items: center;
+        }
+
+        input {
+            padding: 0.35rem;
+            height: 35px;
+            width: 250px;
+            font-size: 1.25em;
+            background: rgba(255, 255, 255, 0.597);
+            border: none;
+        }
+
+        input:focus {
+            border: none;
+            outline: none;
+        }
+
+        input[type=submit] {
+            background: dodgerblue;
+            color: white;
+        }
+
+        input[type=submit]:hover {
+            color: dodgerblue;
+            background: white;
+        }
+
+        input[type=submit],
+        h1 {
+            grid-column: 1 / span 2;
+        }
+
+        small {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="">
+            <h1>Please fill the form</h1>
+            <div class="name_field_container">
+                <input class="user_input" type="text" name="" id="name" placeholder="Enter Name" autocomplete="off">
+                <br><small id="name_message"></small>
+            </div>
+
+            <div class="email_field_container">
+                <input class="user_input" type="email" name="" id="email" placeholder="Enter Email">
+                <br><small id="email_message"></small>
+            </div>
+
+            <div class="phone_field_container">
+                <input class="user_input" type="number" name="" id="phone" placeholder="Enter Phone No.">
+                <br><small id="phone_message"></small>
+            </div>
+
+            <div class="pass_field_container">
+                <input class="user_input" type="password" name="" id="password" placeholder="Enter Password">
+                <br><small id="password_message"></small>
+            </div>
+
+            <input type="submit" value="Login" id="submit_btn">
+        </form>
+    </div>
+
+    <script>
+
+        let regEx = {
+            name: /^[A-Z][a-z]{2,19}$/,
+            email: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+            phone: /^[6-9][0-9]{9}$/,
+            password: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
+        }
+
+        // Select elements 
+        let input_fields = document.getElementsByClassName("user_input")
+
+        let message_box = {
+            name: document.getElementById("name_message"),
+            email: document.getElementById("email_message"),
+            phone: document.getElementById("phone_message"),
+            password: document.getElementById("password_message"),
+        }
+
+        let focus_message = {
+            name: "Name to start with capital letter. <br>Length: 3-20 chars.",
+            email: "Email should be proper format",
+            phone: "Phone should be proper format",
+            password: "Password should be proper format"
+        }
+
+        for (let field of input_fields) {
+            field.addEventListener("focus", (e) => {
+                let id = e.target.id
+                message_box[id].innerHTML = focus_message[id]
+            })
+
+            field.addEventListener("blur", (e) => {
+                let id = e.target.id
+
+                if (regEx[id].test(e.target.value)) {
+                    // console.log("Valid");
+                    e.target.style.border = "2px solid green"
+                    message_box[id].style.display = "none"
+                }
+                else {
+                    e.target.style.border = "2px solid red"
+                    message_box[id].innerHTML = "Invalid value"
+                }
+            })
+        }
+
+
+    </script>
+</body>
+
+</html>

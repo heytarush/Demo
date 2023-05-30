@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        .container{
+                background-color: blue;
+                height: 700px;
+                position: relative;
+
+        }
+
+        #box1{
+            height: 70px;
+            background-color: bisque;
+
+        }
+        
+        #box2{
+            width: 30%;
+            height: 620px;
+            margin: auto;
+            float: left;
+            background-color: wheat;
+        }
+        
+        #box3 {
+            float: right;
+            width: 69%;
+            margin-top: 10px;
+            height: 550px;
+            background-color: gold;
+            
+        }
+        #box4 {
+            position: absolute ;
+            clear: both;
+            background-color: green;
+            bottom: 0;
+            right: 0;
+            width: 69%;
+            height: 60px;
+        }
+
+        #navbar{
+            display: inline-block;
+            list-style-type: none;
+            /* float: left; */
+
+        }
+        #navbar>li{
+            float: left;
+            margin-left: 120px;
+            margin-right:120px;
+            background-color: aqua;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+            <div id="box1"> 
+                <ul id="navbar">
+                    <li>home</li>
+                    <li>sign in</li>
+                    <li> logout</li>
+                    <li> login</li>
+            
+                </ul>
+            </div>
+            <div id="box2"> sidebar </div>
+            <div id="box3"> mainbox</div>
+            <div id="box4"> footer</div>
+
+    </div>
+    
+   
+</body>
+</html>
+
+
+// how to make a translate function in python?
